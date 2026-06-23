@@ -1,15 +1,31 @@
 import subprocess
 
+def if_speed(speed):
+    if speed < 1:
+        return 175
+    return speed
+
+# core
 def run(code,data,speed):
-    if speed < 0:
-        speed = 175
+    speed = if_speed(speed)
     subprocess.run(["espeak", "-v", code, "-s", str(speed), data])
 
-def open_file(code,cd_file,speed):
-    if speed < 0:
-        speed = 175
-    with open(cd_file,"r") as f:
+# wrapper
+def open_file(code,cd,speed):
+    with open(cd,"r") as f:
         data_code = f.read()
-        subprocess.run(["espeak", "-v", code, "-s", str(speed), data_code])
+        run(code,data_code,speed)
 
-__VERSION__ = "0.3.2"
+# core
+def save_to_file(code,data,speed,name):
+    speed = if_speed(speed)
+    subprocess.run(["espeak", "-v", code, "-s", str(speed), data, "-w", name])
+
+# wrapper
+def file_to_voice(code,cd,speed,name):
+    with open(cd,"r") as f:
+        data_code = f.read()
+        save_to_file(code,data_code,speed,name)
+
+#version code
+version = "0.5.9"
