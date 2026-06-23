@@ -1,44 +1,78 @@
-pyespeakr
-pyespeakr is a Python module designed to send commands to the eSpeak text-to-speech engine.
-The main goal of this module is to allow developers to control and use the eSpeak speech synthesis engine easily from Python.
-This is currently a beta version, and more features will be added in future releases.
-Usage
-1. Speaking text directly
-Python
+The pyespeakr module is designed to allow Python to send simple and fast commands to the eSpeak speech engine. This version of the module is currently a beta release and includes only the core and basic features.
 
+Below are some examples of how to use it.
+
+Basic usage: directly speaking text
+
+To play a text directly, use the following command:
+----------------------------
 import pyespeakr
 
-pyespeakr.run("en", "Hello world", 175)
+pyespeakr.run("en", "Hello", 175)
+----------------------------
+In the first argument, you select the language.
+In the second argument, you write the text in that selected language.
+The third argument, 175, defines the reading speed in words per minute.
 
-This command sends the text "Hello world" to the eSpeak engine and instructs it to:
-Speak in English ("en")
-Use a speed of 175 words per minute
-You can use different languages and texts depending on what eSpeak supports. This module acts as a bridge to send those commands to the engine.
-2. Speaking text from a file
-Python
 
+---
+
+Saving text to an audio file
+
+To save text as an audio file, you can use:
+----------------------------
+import pyespeakr
+
+pyespeakr.save_to_file("en", "Hello", 175, "file.mp3")
+----------------------------
+The first three arguments follow the same rules as the previous command.
+The fourth argument specifies the output file name where the audio will be saved.
+
+
+---
+
+Reading and playing a text file
+
+To read the content of a file and play it directly, use:
+----------------------------
 import pyespeakr
 
 pyespeakr.open_file("en", "file.txt", 175)
+----------------------------
+In this command, the first argument selects the language.
+The second argument is the file name (including its extension) whose content will be read.
+The third argument defines the reading speed.
+After execution, the text inside the file will be spoken aloud.
 
-This command reads the content of file.txt and sends it to the eSpeak engine to be spoken in English with a speed of 175 words per minute.
-3. Checking the current version
-Python
 
+---
+
+Converting a text file to audio
+
+To read a file and save its content as an audio file:
+----------------------------
 import pyespeakr
 
-print(pyespeakr.__VERSION__)
+pyespeakr.file_to_voice("en", "file.txt", 175, "file.mp3")
+----------------------------
+The first argument selects the language.
+The second argument is the file to be read.
+The third argument sets the reading speed.
+The fourth argument defines the output audio file name, which will be created after execution containing the spoken content of the input file.
 
-This will print the current version of the module.
-Summary
-pyespeakr provides a simple interface to control the eSpeak TTS engine using Python, allowing text and file-based speech synthesis with customizable language and speed.
 
-To download and use this package, follow the steps below:
-Bash
+---
+
+Installation requirements
+
+To use this module correctly, the eSpeak engine must be installed on your system.
+
+Then install the Python package using:
 
 pip install pyespeakr
 
-Then import it into your project and use it. To run it, the minimum required Python version is 3.8 or higher.
-Or you can visit the PyPI website using the link below and download the project:
+After installation, you can import and use it in your projects.
 
-https://pypi.org/project/pyespeakr/
+The module is available on PyPI:
+
+https://pypi.org/project/pyespeakr/#description
