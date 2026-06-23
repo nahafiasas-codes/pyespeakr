@@ -1,26 +1,20 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyespeakr"
-version = "0.3.4"
-description = "A simple Python wrapper for the eSpeak text-to-speech engine"
+version = "0.5.9"
+description = "Simple Python wrapper for eSpeak TTS engine"
+authors = [{ name = "Rimten1379_py" }]
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.7"
+dependencies = []
 license = {text = "MIT"}
 
-authors = [
-    { name = "Ramtin", email = "nahafiasas@gmail.com‬‏" }
-]
-
-keywords = ["espeak", "tts", "text-to-speech", "python"]
-
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Operating System :: OS Independent",
     "License :: OSI Approved :: MIT License"
 ]
 
-dependencies = []
+[project.urls]
+Homepage = "https://github.com/nahafiasas-codes/pyespeakr"
